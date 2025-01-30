@@ -229,4 +229,153 @@ if __name__ == "__main__":
 - **Cooperative scheduling**: Tasks must `await` manually.
 - **Avoid race conditions**: Use `Lock`, `Queue`, or `multiprocessing.Value`.
 
-Would you like additional examples, or deeper OS scheduling details? 🚀
+## **7. Context Switch**
+
+### **🔹 What is a Context Switch?**
+A **context switch** is the process of **saving and restoring the state** (context) of a process or thread so that execution can be resumed later. The OS performs context switching to allow multiple processes or threads to share a CPU.
+
+### **🔹 When Does Context Switching Happen?**
+A context switch occurs when:
+1. **Process Scheduling**: The OS switches execution from one process to another (preemptive multitasking).
+2. **Thread Scheduling**: The OS switches between threads within the same process.
+3. **Interrupt Handling**: The CPU switches from executing user code to handling an interrupt (e.g., I/O completion, system calls).
+4. **Syscalls (System Calls)**: A program requests the OS to perform a task (e.g., file access, network operations).
+
+---
+
+## **1. Steps in a Context Switch**
+1. **Save Current State**: The OS saves the current process's registers, program counter (PC), and memory state.
+2. **Load New Process/Thread**: The OS loads the next scheduled process/thread.
+3. **Update CPU Registers**: The new process/thread resumes execution from where it left off.
+
+🔹 **Diagram of Context Switching**
+```
+Process A (Running)  ---> [Save State] ---> Process B (Running)
+                    <--- [Restore State] <---
+```
+🔹 **OS Saves and Restores:**
+- Program Counter (PC)
+- Stack Pointer (SP)
+- CPU Registers
+- Process State (Ready/Running/Waiting)
+
+---
+
+## **2. Context Switching in Processes vs. Threads**
+| Feature | **Process Context Switch** | **Thread Context Switch** |
+|---------|------------------------|------------------------|
+| **What is switched?** | Entire memory space, registers, program counter | Only registers, program counter |
+| **Cost (Time & Resources)?** | High (OS must change memory maps) | Lower (same memory space) |
+| **Speed** | Slower | Faster |
+| **Best Use Case** | CPU-intensive tasks | I/O-bound tasks |
+
+🔹 **Example of Process Context Switching**
+```python
+import multiprocessing
+import time
+
+def worker(name):
+    print(f"Process {name} running")
+    time.sleep(2)
+    print(f"Process {name} completed")
+
+if __name__ == "__main__":
+    p1 = multiprocessing.Process(target=worker, args=("A",))
+    p2 = multiprocessing.Process(target=worker, args=("B",))
+
+    p1.start()
+    p2.start()
+
+    p1.join()
+    p2.join()
+```
+✅ **The OS schedules `p1` and `p2`, switching between them when needed.**
+
+🔹 **Example of Thread Context Switching**
+```python
+import threading
+import time
+
+def worker(name):
+    print(f"Thread {name} running")
+    time.sleep(2)
+    print(f"Thread {name} completed")
+
+t1 = threading.Thread(target=worker, args=("A",))
+t2 = threading.Thread(target=worker, args=("B",))
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+```
+✅ **Threads share the same memory, so context switching is faster.**
+
+---
+
+## **3. Context Switching in `asyncio`**
+In `asyncio`, **context switching happens manually** at `await` points.
+
+🔹 **Example: Coroutine Context Switching**
+```python
+import asyncio
+
+async def worker(name, delay):
+    print(f"Task {name} started")
+    await asyncio.sleep(delay)  # Context switch happens here
+    print(f"Task {name} finished")
+
+async def main():
+    await asyncio.gather(worker("A", 2), worker("B", 1))
+
+asyncio.run(main())
+```
+✅ **Unlike threads, coroutines **explicitly yield control** at `await asyncio.sleep(delay)`.
+
+---
+
+## **4. Context Switch Cost and Optimization**
+Context switching has overhead because saving/restoring registers takes time.
+
+### **🔹 How to Reduce Context Switch Overhead**
+| Method | How It Helps |
+|--------|-------------|
+| **Use Threads for I/O-bound tasks** | Lower cost than process switching |
+| **Use `asyncio` for I/O** | No thread switching, less overhead |
+| **Use `multiprocessing` for CPU-bound tasks** | True parallelism but expensive switches |
+| **Avoid frequent context switches** | Group I/O tasks together to reduce switching |
+
+🔹 **Benchmarking Context Switch Cost**
+```python
+import time
+import threading
+
+def task():
+    for _ in range(1000000):
+        pass  # Simulate computation
+
+start = time.time()
+
+threads = [threading.Thread(target=task) for _ in range(5)]
+for t in threads:
+    t.start()
+for t in threads:
+    t.join()
+
+end = time.time()
+print(f"Time taken: {end - start:.5f} seconds")
+```
+✅ **More threads = more context switches = higher overhead.**
+
+---
+
+## **5. Summary**
+| Concept | Description |
+|---------|-------------|
+| **Context Switch** | The OS saves/restores execution state when switching tasks |
+| **When It Happens** | Process scheduling, thread scheduling, interrupts |
+| **Cost of Switching** | Higher for processes, lower for threads |
+| **Optimization** | Use `asyncio` for I/O, avoid excessive switching |
+
+Would you like **deep-dive examples** on optimizing performance? 🚀
