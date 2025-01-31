@@ -15,7 +15,7 @@ The Application Layer provides services to end users and ensures applications ca
 - **HTTP** (HyperText Transfer Protocol)
 - **FTP** (File Transfer Protocol)
 - **SSH** (Secure Shell)
-- **[DHCP](#dhcp-extra-notes)** (Dynamic Host Configuration Protocol)
+- **[DHCP](https://github.com/danniefairy/AI-Knowledge/blob/main/Network.md#dhcp-extra-notes)** (Dynamic Host Configuration Protocol)
 - **Proxy** (Intermediary Server Protocol)
 - **[DNS](#dns-extra-notes)** (Domain Name System)
 
