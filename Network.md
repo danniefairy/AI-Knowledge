@@ -224,6 +224,23 @@ The Link Layer is responsible for handling node-to-node communication and defini
 3. **Hash Function:**
    - MD5, SHA1, SHA256
 
+### **Proxy vs. Reverse Proxy vs. NAT**
+#### **Proxy:**
+- Acts as an intermediary between a client and a destination server.
+- Used to filter, cache, and monitor client requests.
+- Common use cases include web filtering and anonymous browsing.
+
+#### **Reverse Proxy:**
+- Sits between clients and backend servers, forwarding client requests to the appropriate server.
+- Enhances security, load balancing, and caching.
+- Examples: Nginx, Apache mod_proxy, AWS ALB.
+
+#### **NAT (Network Address Translation):**
+- Enables multiple devices in a private network to share a single public IP.
+- **SNAT (Source NAT):** Translates the private IP of outgoing packets to a public IP.
+- **DNAT (Destination NAT):** Redirects incoming traffic to a specific private IP within the network.
+
+
 ---
 
 ## **Conclusion**
