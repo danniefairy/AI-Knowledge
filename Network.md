@@ -201,6 +201,29 @@ The Link Layer is responsible for handling node-to-node communication and defini
 [Server] -> Switch <- [DHCP Server]
 ```
 
+### **SSL/TLS Extra Notes**
+#### **Process:**
+1. **Server Gets Digital Certificates**
+   - Server creates public/private key.
+   - Server provides public key and personal information to CA.
+   - CA returns a digital certificate (encrypted by CA private key).
+2. **Client (Browser) Connects to Server:**
+   - Client sends an HTTPS request to the server.
+   - Server sends a digital certificate and public key to the client.
+   - Client checks with CA for the server's digital certificate (decrypts using CA public key in the browser).
+   - Client creates a symmetric key.
+   - Client encrypts the key with the server's public key and sends it to the server.
+   - Server decrypts it with its private key.
+   - Client and server now communicate with each other using data encrypted by the symmetric key.
+
+#### **Types of Encryption:**
+1. **Symmetric Encryption Algorithm:**
+   - DES, AES
+2. **Asymmetric Encryption Algorithm:**
+   - RSA, DSA
+3. **Hash Function:**
+   - MD5, SHA1, SHA256
+
 ---
 
 ## **Conclusion**
