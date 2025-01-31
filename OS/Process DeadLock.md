@@ -73,6 +73,8 @@ This algorithm **simulates resource allocation** before actually granting resour
 
 ✅ If a process's **Need ≤ Available**, it can finish execution and release resources, allowing other processes to proceed.
 
+### **Banker's Algorithm only provide the definition of deadlock, but we need to use graph algorithm(topological sort) to find the safe order to run the processes.**
+
 ---
 
 ## **5. Deadlock Detection & Recovery**
