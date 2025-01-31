@@ -1,5 +1,112 @@
 Here’s a **comprehensive, structured, and hierarchical explanation** of all the key concepts from the documents, along with the reasons **why each concept is needed** and how they are interconnected.
 
+```
+Operating System (OS)
+│
+├── Process Management
+│   ├── Process
+│   │   ├── Threads
+│   │   ├── Concurrency vs. Parallelism
+│   │   ├── Context Switching
+│   │   └── Inter-Process Communication (IPC)
+│   ├── CPU Scheduling
+│   │   ├── FCFS
+│   │   ├── SJF
+│   │   ├── Round Robin
+│   │   ├── Priority Scheduling
+│   │   └── Multilevel Queue
+│   ├── Deadlocks (Ensures Progress and System Liveliness)
+│   │   ├── Coffman’s Conditions
+│   │   ├── Deadlock Prevention
+│   │   ├── Deadlock Avoidance (Banker’s Algorithm)
+│   │   ├── Deadlock Detection
+│   │   └── Deadlock Recovery
+│   └── Synchronization (Ensuring Correct Data Access)
+│       ├── Critical Section Problem
+│       ├── Mutual Exclusion
+│       │   ├── Mutex (Lock)
+│       │   ├── Semaphore
+│       │   ├── Monitor
+│       │   └── Atomic Operations
+│       ├── Race Conditions
+│       ├── Classical Problems
+│       │   ├── Dining Philosophers
+│       │   ├── Producer-Consumer
+│       │   └── Readers-Writers
+│       └── Preemptive vs. Cooperative Multitasking
+│
+├── Memory Management
+│   ├── RAM Allocation
+│   │   ├── Paging
+│   │   │   ├── Page Table
+│   │   │   ├── Page Fault
+│   │   │   ├── Page Replacement
+│   │   │   │   ├── FIFO
+│   │   │   │   ├── LRU
+│   │   │   │   └── Optimal
+│   │   │   └── Thrashing
+│   │   ├── Segmentation
+│   │   ├── Virtual Memory
+│   │   ├── Memory Allocation
+│   │   │   ├── Fixed Partitioning
+│   │   │   ├── Dynamic Partitioning
+│   │   │   ├── Internal Fragmentation
+│   │   │   └── External Fragmentation
+│   │   ├── Demand Paging
+│   │   └── Working Set Model
+│
+├── File System Management
+│   ├── File Organization
+│   │   ├── Sequential
+│   │   ├── Indexed
+│   │   ├── Hashed
+│   │   └── Random Access
+│   ├── File Allocation
+│   │   ├── Contiguous Allocation
+│   │   ├── Linked Allocation
+│   │   ├── Indexed Allocation
+│   │   └── Modern File Systems (NTFS, ext4, APFS)
+│   ├── Directory Structures
+│   │   ├── Single-Level
+│   │   ├── Two-Level
+│   │   ├── Tree-Structured
+│   │   ├── Graph-Based
+│   │   └── Symbolic & Hard Links
+│   ├── File Protection & Security
+│   │   ├── Access Control Lists (ACLs)
+│   │   ├── File Permissions (rwx)
+│   │   ├── Encryption
+│   │   ├── Authentication
+│   │   └── File Locking
+│
+├── I/O Management
+│   ├── Device Communication
+│   │   ├── Polling
+│   │   ├── Interrupt-Driven I/O
+│   │   ├── Direct Memory Access (DMA)
+│   │   └── I/O Buffers & Caching
+│   ├── Disk Scheduling
+│   │   ├── FCFS
+│   │   ├── SSTF
+│   │   ├── SCAN
+│   │   ├── C-SCAN
+│   │   ├── LOOK
+│   │   └── C-LOOK
+│   ├── RAID Storage
+│   │   ├── RAID 0 (Striping)
+│   │   ├── RAID 1 (Mirroring)
+│   │   ├── RAID 5 (Striping + Parity)
+│   │   ├── RAID 6 (Double Parity)
+│   │   └── RAID 10 (Mirroring + Striping)
+│   └── File Protection & Security
+│
+└── System Calls
+    ├── Process Control (`fork()`, `exec()`, `exit()`)
+    ├── File Management (`open()`, `read()`, `write()`, `close()`)
+    ├── Device Management (`ioctl()`, `read()`, `write()`)
+    ├── Memory Management (`malloc()`, `free()`, `mmap()`)
+    └── Networking (`socket()`, `connect()`, `send()`, `recv()`)
+```
 ---
 
 # **📌 Comprehensive Guide to Operating System Concepts**
