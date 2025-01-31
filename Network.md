@@ -240,6 +240,25 @@ The Link Layer is responsible for handling node-to-node communication and defini
 - **SNAT (Source NAT):** Translates the private IP of outgoing packets to a public IP.
 - **DNAT (Destination NAT):** Redirects incoming traffic to a specific private IP within the network.
 
+### **Network Debug**
+#### **Application Layer:**
+- Check HTTP service: `curl ip_address`
+
+#### **Transport Layer:**
+- Check local port usage: `ss -tu`
+- Check remote port: `telnet url port`
+
+#### **Network Layer:**
+- Check current IP: `ip -br address show` (If there is no IP for the server, it may be a DHCP issue.)
+- Check remote IP connectivity: `ping`
+
+#### **Link Layer:**
+- Check ARP (whether the MAC address of the gateway is populated to the server): `ip neighbor show`
+
+#### **Physical Layer:**
+- Check physical interface: `ip link show`
+- Bring interface up again: `ip link set eth0 up` (If it is still down, check the cable/switch.)
+
 
 ---
 
