@@ -17,11 +17,11 @@ The Application Layer provides services to end users and ensures applications ca
 - **SSH** (Secure Shell)
 - **[DHCP](https://github.com/danniefairy/AI-Knowledge/blob/main/Network.md#dhcp-extra-notes)** (Dynamic Host Configuration Protocol)
 - **Proxy** (Intermediary Server Protocol)
-- **[DNS](#dns-extra-notes)** (Domain Name System)
+- **[DNS](https://github.com/danniefairy/AI-Knowledge/blob/main/Network.md#dns-extra-notes-dns-extra-notes)** (Domain Name System)
 
 Each protocol operates on different ports.
 
-### **SSL/TLS (After TCP Handshake Completion)**
+### **[SSL/TLS (After TCP Handshake Completion)](https://github.com/danniefairy/AI-Knowledge/blob/main/Network.md#subnet-extra-notes-subnet-extra-notes)**
 
 SSL/TLS is used to secure connections after the TCP handshake has been completed and a connection is established.
 
@@ -78,7 +78,7 @@ The Network Layer handles packet transfers across network boundaries and ensures
   - Example: **Open Shortest Path First (OSPF) using Dijkstra’s Algorithm**
 - A **switch** only handles packet exchange and does not perform routing.
 
-#### **[Subnet](#subnet-extra-notes)**
+#### **[Subnet](https://github.com/danniefairy/AI-Knowledge/blob/main/Network.md#subnet-extra-notes-subnet-extra-notes)**
 
 - Defines different ranges of subnet allocation.
 
