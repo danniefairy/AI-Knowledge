@@ -183,7 +183,7 @@ The Link Layer is responsible for handling node-to-node communication and defini
   - `ServerInSubnetA <- ServerWithPublicIPB <- ServerOutsideSubnetC (ipC->ipB, ipB->ipA)`
   - `ServerInSubnetA -> ServerWithPublicIPB -> ServerOutsideSubnetC (ipA->ipB, ipB->ipC)`
 
-### **DHCP Extra Notes** {#dhcp-extra-notes}
+### **DHCP Extra Notes**
 
 #### **Dynamic Host Configuration Protocol (DHCP)**
 
