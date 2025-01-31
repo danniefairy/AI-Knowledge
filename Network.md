@@ -242,23 +242,30 @@ The Link Layer is responsible for handling node-to-node communication and defini
 
 ### **Network Debug**
 #### **Application Layer:**
-- Check HTTP service: `curl ip_address`
+- **Check HTTP service:** `curl ip_address`
+  - This command sends an HTTP request to the given IP to verify if the web service is running and responding.
 
 #### **Transport Layer:**
-- Check local port usage: `ss -tu`
-- Check remote port: `telnet url port`
+- **Check local port usage:** `ss -tu`
+  - Displays all TCP and UDP connections to identify if the necessary ports are in use.
+- **Check remote port:** `telnet url port`
+  - Attempts to establish a connection to a remote service, confirming if the target server and port are accessible.
 
 #### **Network Layer:**
-- Check current IP: `ip -br address show` (If there is no IP for the server, it may be a DHCP issue.)
-- Check remote IP connectivity: `ping`
+- **Check current IP:** `ip -br address show`
+  - Displays assigned IP addresses on all network interfaces. If no IP is present, the issue may be related to DHCP configuration.
+- **Check remote IP connectivity:** `ping ip_address`
+  - Sends ICMP packets to check if a remote server is reachable and responsive.
 
 #### **Link Layer:**
-- Check ARP (whether the MAC address of the gateway is populated to the server): `ip neighbor show`
+- **Check ARP (whether the MAC address of the gateway is populated to the server):** `ip neighbor show`
+  - Verifies if the system has resolved the MAC address of the network gateway, which is essential for communication beyond the local network.
 
 #### **Physical Layer:**
-- Check physical interface: `ip link show`
-- Bring interface up again: `ip link set eth0 up` (If it is still down, check the cable/switch.)
-
+- **Check physical interface:** `ip link show`
+  - Lists all network interfaces and their states (up/down).
+- **Bring interface up again:** `ip link set eth0 up`
+  - Attempts to enable a disabled network interface. If it remains down, inspect physical connections such as cables and switches.
 
 ---
 
