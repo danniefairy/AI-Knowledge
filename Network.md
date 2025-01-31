@@ -59,7 +59,7 @@ The Network Layer handles packet transfers across network boundaries and ensures
 ### **Protocols:**
 
 - **IP (Internet Protocol)**
-- **[NAT](#nat-extra-notes)** (Network Address Translation)
+- **[NAT](https://github.com/danniefairy/AI-Knowledge/blob/main/Network.md#nat-extra-notes-nat-extra-notes)** (Network Address Translation)
 - **ICMP (Internet Control Message Protocol, e.g., Ping)**
 - **ARP (Address Resolution Protocol)**
   - ARP is responsible for mapping **IP addresses (logical)** to **MAC addresses (physical, provided by the Network Interface Card (NIC))**.
@@ -102,7 +102,7 @@ The Link Layer is responsible for handling node-to-node communication and defini
 
 ## **5. Additional Notes on Each Component**
 
-### **DNS Extra Notes** {#dns-extra-notes}
+### **DNS Extra Notes**
 
 #### **FQDN (Fully Qualified Domain Name)**
 - Example: `www.abc.com`
@@ -146,7 +146,7 @@ The Link Layer is responsible for handling node-to-node communication and defini
 #### **Reference:**
 - [DNS Explanation](https://articles.onlinetoknow.com/dns/)
 
-### **Subnet Extra Notes** {#subnet-extra-notes}
+### **Subnet Extra Notes**
 
 #### **Class-Based Subnetting:**
 
@@ -163,7 +163,7 @@ The Link Layer is responsible for handling node-to-node communication and defini
   - **B = /16**
   - **C = /24**
 
-### **NAT Extra Notes** {#nat-extra-notes}
+### **NAT Extra Notes**
 
 #### **Network Address Translation (NAT)**
 
